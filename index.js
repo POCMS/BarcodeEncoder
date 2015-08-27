@@ -15,8 +15,11 @@ module.exports.generate = function(string){
 }
 
 module.exports.count = function (input){
-    var bitstring = this.decode(input);
-    return bitstring.split("1").length - 1;
+    return this.decode(input).split("1").length - 1;
+}
+
+module.exports.length = function (input){
+    return this.decode(input).length;
 }
 
 module.exports.decode = function (input){
