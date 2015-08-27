@@ -1,0 +1,10 @@
+{
+  "name": "BarcodeEncoder",
+  "description": "Generate ASCII strings to be used with Code128 WebFont",
+  "author": {
+    "name": "K. Johan Paulsson",
+    "email": ""
+  },
+  "version": "0.1.0",
+  "main": "index"
+}
