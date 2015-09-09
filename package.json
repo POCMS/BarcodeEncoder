@@ -15,6 +15,7 @@
   "devDependencies": {
     "chai": "*",
     "istanbul": "*",
-    "mocha": "*"
+    "mocha": "*",
+    "xunit-file": "0.0.7"
   }
 }
