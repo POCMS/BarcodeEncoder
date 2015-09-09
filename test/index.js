@@ -19,14 +19,27 @@ describe('encode()', function(){
     it('should return an empty string on empty string', function(){
         BarcodeEncoder.encode("").should.equal("")
     });
-    it('should encode correctly', function(){
-        BarcodeEncoder.encode("111").should.equal("#! #")
-        BarcodeEncoder.encode("000").should.equal("#")
-        BarcodeEncoder.encode("1010101010").should.equal("*%!!")
-        BarcodeEncoder.encode("1110010101").should.equal("*!#\"\"!!")
+    var tests = [
+        {case: '111',         expected: '#! #'},
+        {case: '000',      expected: '#'},
+        {case: '1010101010',   expected: '*! !$!!'},
+        {case: '0101010101',      expected: '*%!!'},
+        {case: '1110010101',   expected: '*! #!"!"!!'}
+    ];
+
+    describe('should encode correctly', function(){
+        tests.forEach(function(test) {
+            it(test.case + ' -> ' + test.expected, function() {
+                BarcodeEncoder.encode(test.case).should.equal(test.expected);
+            });
+        });
     });
     it('should remove trailing empty characters', function(){
-        BarcodeEncoder.encode("0000").should.equal("$")
+        var padding = "";
+        for(var i=0;i<10;i++){
+            BarcodeEncoder.encode("01"+padding).should.equal(BarcodeEncoder.encodeTable[2+padding.length]+"!!!")
+            padding += "0";
+        }
     });
 })
 
