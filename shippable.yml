@@ -5,7 +5,7 @@ node_js:
   - "0.10"
 
 env:
-  - XUNIT_FILE=shippable/testresults/result.xml
+  - XUNIT_FILE=./shippable/testresults/result.xml
 
 before_script:
   - mkdir -p shippable/testresults
@@ -16,4 +16,5 @@ script:
 
 after_script:
   - ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -R xunit
-  - ./node_modules/.bin/istanbul report cobertura --dir shippable/codecoverage/
+  - ./node_modules/.bin/istanbul report cobertura --dir ./shippable/codecoverage/
+  - mv ./shippable/codecoverage/cobertura-coverage.xml ./shippable/codecoverage/coverage.xml
