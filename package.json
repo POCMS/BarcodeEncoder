@@ -3,8 +3,18 @@
   "description": "Generate ASCII strings to be used with Code128 WebFont",
   "author": {
     "name": "K. Johan Paulsson",
-    "email": ""
+    "email": "jpaulsson@pocmedsys.com"
+  },
+  "private": true,
+  "repository": "git+ssh://git@github.com/POCMS/BarcodeEncoder.git",
+  "scripts": {
+    "test": "mocha --reporter spec test"
   },
   "version": "0.1.0",
-  "main": "index"
+  "main": "lib/BarcodeEncoder.js",
+  "devDependencies": {
+    "chai": "*",
+    "istanbul": "*",
+    "mocha": "*"
+  }
 }
